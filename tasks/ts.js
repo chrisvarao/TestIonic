@@ -22,7 +22,7 @@ module.exports = function(gulp, plugins) {
 
         var tscBin = path.join("node_modules", ".bin", "tsc");
 
-        var result = sh.exec(tscBin + " -p .");
+        var result = sh.exec(tscBin + " -p src");
 
         if (result.code !== 0) {
             cb(new Error("Error running TypeScript compiler (tsc)."));
