@@ -12,7 +12,7 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "target": "es5",
-    "out": "www/js/bundle.js",
+    // "out": "www/js/bundle.js",
     "sourceRoot": ""
   },
   "include": [

@@ -8,19 +8,13 @@
       "dom",
       "es2015"
     ],
-    "module": "system",
     "moduleResolution": "node",
     "sourceMap": true,
     "target": "es5",
-    "out": "www/test/bundle.js",
-    // "types": ["mocha", "chai"],
     "sourceRoot": "../"
   },
   "include": [
     "./**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
   ],
   "compileOnSave": false,
   "atom": {
