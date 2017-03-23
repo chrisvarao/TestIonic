@@ -8,11 +8,13 @@
       "dom",
       "es2015"
     ],
-    "module": "amd",
+    "module": "system",
     "moduleResolution": "node",
     "sourceMap": true,
     "target": "es5",
-    "out": "www/test/bundle.js"
+    "out": "www/test/bundle.js",
+    // "types": ["mocha", "chai"],
+    "sourceRoot": "../"
   },
   "include": [
     "./**/*.ts"

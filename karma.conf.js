@@ -14,6 +14,11 @@ module.exports = function(config) {
         //     require('karma-jasmine'),
         //     require('karma-chrome-launcher'),
         // ],
+        plugins: [
+            require('karma-mocha'),
+            require('karma-chai'),
+            require('karma-chrome-launcher'),
+        ],
 
 
         // list of files / patterns to load in the browser
@@ -29,17 +34,23 @@ module.exports = function(config) {
             "www/lib/nprogress/nprogress.js",
             "www/lib/uri/uri.min.js",
             "www/js/templates.js",
-            "www/js/bundle.js",
             "www/js/boot1.js",
 
             // Tests
-            "tests/bundle.tests.js",
+            "www/test/bundle.js",
+
+            {
+                pattern: "node_modules/**/*.ts",
+                included: false,
+                watched: false,
+                served: true
+            },
 
             // Allow the source maps and source for the TypeScript test files to be served
             // so they can be used for debugging tests, but do not include them as script
             // references in the browser instance.
             {
-                pattern: "tests/**/*.js.map",
+                pattern: "www/test/bundle.js.map",
                 included: false,
                 watched: false,
                 served: true
@@ -94,6 +105,6 @@ module.exports = function(config) {
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false
+        singleRun: true
     })
 }

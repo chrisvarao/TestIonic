@@ -1,16 +1,20 @@
+import * as angular from 'angular';
+import * as chai from 'chai';
+var expect = chai.expect
+
 describe('test:client:unit:pages:list', function() {
   var $scope, ctrl, $timeout;
 
   beforeEach(function () {
 
-    module("app");
+    angular.module("app");
 
     // INJECT! This part is critical
     // $rootScope - injected to create a new $scope instance.
     // $controller - injected to create an instance of our controller.
     // $q - injected so we can create promises for our mocks.
     // _$timeout_ - injected to we can flush unresolved promises.
-    inject(function ($rootScope, $controller, $q, _$timeout_) {
+    angular.inject(function ($rootScope, $controller, $q, _$timeout_) {
       // create a scope object for us to use.
       $scope = $rootScope.$new();
 
@@ -31,6 +35,6 @@ describe('test:client:unit:pages:list', function() {
   });
 
   it('should shut the fuck up', function() {
-    expect($scope).toBeDefined();
+    expect($scope).to.equal('derp');
   })
 });
