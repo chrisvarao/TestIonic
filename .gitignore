@@ -28,7 +28,7 @@ plugins/android.json
 plugins/ios.json
 www/
 $RECYCLE.BIN/
-tests/**/*.js
+tests/client/**/*.js
 tests/**/*.js.map
 tests/main.js
 src/**/*.js
