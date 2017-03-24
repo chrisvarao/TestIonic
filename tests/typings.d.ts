@@ -1,3 +1,5 @@
-///<reference path="./../typings/globals/mocha/index.d.ts"/>
-///<reference path="./../typings/globals/node/index.d.ts"/>
-///<reference path="./../typings/modules/chai/index.d.ts"/>
+///<reference path="./../node_modules/@types/mocha/index.d.ts"/>
+///<reference path="./../node_modules/@types/node/index.d.ts"/>
+///<reference path="./../node_modules/@types/chai/index.d.ts"/>
+///<reference path="./../node_modules/@types/angular/index.d.ts"/>
+///<reference path="./../node_modules/@types/angular-mocks/index.d.ts"/>

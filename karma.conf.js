@@ -29,7 +29,7 @@ module.exports = function(config) {
 
             {
                 pattern: "node_modules/**/*.ts",
-                included: false,
+                included: true,
                 watched: false,
                 served: true
             },

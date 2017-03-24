@@ -2,10 +2,16 @@ import { expect } from 'chai'
 // import { module, inject } from 'angular-mocks/angular-mocks'
 // var angular = require('angular-mocks/angular-mocks');
 
-// import * as angular from 'angular';
-// import 'angular-mocks';
+import * as angular from 'angular';
+import 'angular-mocks';
 
-import * as angular from 'angular-mocks';
+
+// var angular = require('angular-mocks');
+
+// import * as angular from 'angular-mocks';
+
+// var angular = require('angular');
+// require('angular-mocks');
 
 export class TestDerp {
 
@@ -15,9 +21,9 @@ export class TestDerp {
 
       beforeEach(function () {
 
-        console.debug(angular, angular.mock);
+        // console.debug('derp', module);
 
-        angular.mock.module("app");
+        angular.module("app");
 
         // INJECT! This part is critical
         // $rootScope - injected to create a new $scope instance.
@@ -44,7 +50,7 @@ export class TestDerp {
         });
       });
 
-      it('should shut the fuck up', () => {
+      it('should have set scope', () => {
         expect($scope).to.equal('derp');
       })
     });
