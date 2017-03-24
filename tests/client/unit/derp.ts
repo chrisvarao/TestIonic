@@ -1,6 +1,11 @@
-// import { describe, it, beforeEach } from 'mocha'
 import { expect } from 'chai'
-import { module, inject } from 'angular'
+// import { module, inject } from 'angular-mocks/angular-mocks'
+// var angular = require('angular-mocks/angular-mocks');
+
+// import * as angular from 'angular';
+// import 'angular-mocks';
+
+import * as angular from 'angular-mocks';
 
 export class TestDerp {
 
@@ -10,14 +15,16 @@ export class TestDerp {
 
       beforeEach(function () {
 
-        module("app");
+        console.debug(angular, angular.mock);
+
+        angular.mock.module("app");
 
         // INJECT! This part is critical
         // $rootScope - injected to create a new $scope instance.
         // $controller - injected to create an instance of our controller.
         // $q - injected so we can create promises for our mocks.
         // _$timeout_ - injected to we can flush unresolved promises.
-        inject(($rootScope, $controller, $q, _$timeout_) => {
+        angular.mock.inject(($rootScope, $controller, $q, _$timeout_) => {
           // create a scope object for us to use.
           $scope = $rootScope.$new();
 

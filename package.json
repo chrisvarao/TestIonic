@@ -42,6 +42,8 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "1.1.4",
+    "angular": "1.5.10",
+    "angular-mocks": "1.5.10",
     "browserify": "^14.1.0",
     "browserify-shim": "^3.8.13",
     "chai": "^3.5.0",

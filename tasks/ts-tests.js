@@ -16,16 +16,17 @@ var sh = require("shelljs");
 module.exports = function(gulp, plugins) {
 
     return function(cb) {
+      sh.exec('rm -rf www/tests');
 
-        var tscBin = path.join("node_modules", ".bin", "tsc");
+      var tscBin = path.join("node_modules", ".bin", "tsc");
 
-        var result = sh.exec(tscBin + " -p tests");
+      var result = sh.exec(tscBin + " -p tests");
 
-        if (result.code !== 0) {
-            cb(new Error(result.output));
-            return;
-        }
+      if (result.code !== 0) {
+          cb(new Error(result.output));
+          return;
+      }
 
-        cb();
+      cb();
     };
 };

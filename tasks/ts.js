@@ -19,6 +19,7 @@ var sh = require("shelljs");
 module.exports = function(gulp, plugins) {
 
     return function(cb) {
+        sh.exec('rm -rf www/app');
 
         var tscBin = path.join("node_modules", ".bin", "tsc");
 

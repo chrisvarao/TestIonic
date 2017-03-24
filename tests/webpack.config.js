@@ -16,9 +16,10 @@ module.exports = {
   },
 
   output: {
-    path          : 'www',
-    filename      : '[name].js',
-    chunkFilename : '[chunkhash].js'
+    path              : 'www',
+    filename          : '[name].js',
+    sourceMapFilename : '[file].map',
+    chunkFilename     : '[chunkhash].js'
   },
 
   module: {
@@ -31,12 +32,16 @@ module.exports = {
 
   resolve: {
     root: [
-      path.join(__dirname, 'tests'),
       path.join(__dirname, 'node_modules'),
+      path.join(__dirname, 'tests')
     ],
     alias: {
     }
   },
+
+  resolveLoader: { root: path.join(__dirname, "node_modules") },
+
+  devtool: 'source-map',
 
   plugins: [
     // new webpack.ResolverPlugin(

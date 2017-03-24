@@ -23,21 +23,9 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-
-            // Application Source Files
-            // This list should match the order defined in index.html
-            "www/js/build-vars.js",
-            "www/lib/ionic/js/ionic.bundle.min.js",
-            "www/lib/angular-mocks/angular-mocks.js",
-            "www/lib/lodash/lodash.min.js",
-            "www/lib/moment/moment.min.js",
-            "www/lib/nprogress/nprogress.js",
-            "www/lib/uri/uri.min.js",
-            "www/js/templates.js",
-            "www/js/boot1.js",
-
             // Tests
-            "www/test/bundle.js",
+            "node_modules/angular/angular.js",
+            "www/bundle.tests.js",
 
             {
                 pattern: "node_modules/**/*.ts",
@@ -50,7 +38,7 @@ module.exports = function(config) {
             // so they can be used for debugging tests, but do not include them as script
             // references in the browser instance.
             {
-                pattern: "www/test/bundle.js.map",
+                pattern: "www/bundle.tests.js.map",
                 included: false,
                 watched: false,
                 served: true
@@ -74,6 +62,13 @@ module.exports = function(config) {
         preprocessors: {
         },
 
+        client: {
+          captureConsole: true,
+          mocha: {
+            bail: true
+          }
+        },
+
 
         // test results reporter to use
         // possible values: "dots", "progress"
@@ -92,10 +87,6 @@ module.exports = function(config) {
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
         logLevel: config.LOG_INFO,
-
-
-        // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: true,
 
 
         // start these browsers

@@ -18,6 +18,11 @@ var gutil = require('gulp-util')
 var webpackBuild = require('ionic-gulp-webpack');
 var webpackConfig = require('./tests/webpack.config.js');
 
+var sh = require("shelljs");
+
+karma = require('karma').server
+// karma = require('karma').Server
+
 /**
  * Used to load the gulp task with the given name from resources/build/tasks
  * http://macr.ae/article/splitting-gulpfile-multiple-files.html
@@ -28,6 +33,10 @@ function getTask(taskName) {
 }
 
 gulp.task("help", plugins.taskListing.withFilters(/:/));
+
+gulp.task('clear', function() {
+  sh.exec('rm -rf www')
+});
 
 gulp.task("ts", ["ts:src"], getTask("ts"));
 gulp.task("ts:src", ["ts:src-readme"], getTask("ts:src"));
@@ -41,7 +50,9 @@ gulp.task('lint', function() {
   .pipe(jshint.reporter('fail')); 
 });
 
-gulp.task('build-test', function(){
+gulp.task('build-test', ['ts:tests'], function(){
+  sh.exec('rm www/bundle.tests.js');
+
   return webpackBuild({
     watch: false,
     config: webpackConfig,
@@ -52,6 +63,11 @@ gulp.task('build-test', function(){
   })
 });
 
-gulp.task('test', ['ts:tests', 'build-test'], function() {
-  console.log('DONE')
+gulp.task('test', ['build-test'], function(done) {
+  karma.start({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done);
+  // server = new karma(__dirname + '/karma.conf.js', [done])
+  // server.start()
 });
